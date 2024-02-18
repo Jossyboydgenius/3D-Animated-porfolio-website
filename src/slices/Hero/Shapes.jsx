@@ -29,3 +29,10 @@ export default function Shapes() {
         </div>
     )
 }
+function Geometries( {
+    const Geometries = [
+        {
+            position: [0, 0, 0],
+        }
+    ]
+})
