@@ -63,8 +63,8 @@ const [visible, setVisible] = useState(false);
         const nesg = e.object;
 
         gsap.to(mesh.rotation,{
-            x: `+=${gsap.utils.random(0,2)}`
-            y: `+=${gsap.utils.random(0,2)}`
+            x: `+=${gsap.utils.random(0,2)}`,
+            y: `+=${gsap.utils.random(0,2)}`,
             z: `+=${gsap.utils.random(0,2)}`,
             duration: 1.3,
             ease: "elastic.out(1,0.3)"
