@@ -42,6 +42,6 @@ function Geometries( {
         new THREE.MeshNormalMaterial()
     ]
 
-    // Pass to
+    // Pass to Geometry
 
 })
