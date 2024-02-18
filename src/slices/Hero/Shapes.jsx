@@ -13,7 +13,7 @@ export default function Shapes() {
             className="z-0" 
             shadows 
             gl={{ antialias: false }} 
-            dpr={1, 1.5} 
+            dpr={[1, 1.5]} 
             camera={{ position: [0, 0, 25], fov: 30, near: 1, far: 40 }}
             >
             <Suspense fallback={null}>
