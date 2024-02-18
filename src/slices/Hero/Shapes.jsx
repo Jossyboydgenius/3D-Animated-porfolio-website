@@ -33,6 +33,7 @@ function Geometries( {
     const Geometries = [
         {
             position: [0, 0, 0],
+            r: 0.3,
         }
     ]
 })
