@@ -43,7 +43,15 @@ function Geometries() {
         new THREE.MeshNormalMaterial()
     ]
 
-    // Pass to Geometry
+    return geometries.map(({position, r, geometry})=>(
+        <Geometry
+        key={JSON.stringify(position)}
+        position={position.map((p)=>p*2)}
+        geometry={geometry}
+        materials={materials}
+        r={r}
+        />
+    ));
 
 }
 
