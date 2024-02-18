@@ -86,7 +86,7 @@ const [visible, setVisible] = useState(false);
     
     return (
         <group position={position} ref ={meshRef}>
-         <Float speed={={5 * r} rotationIntensity={6 * r} floatIntensity={5 * r}>
+         <Float speed={5 * r} rotationIntensity={6 * r} floatIntensity={5 * r}>
          <mesh
          geometry={geometry}
          onClick={handleClick}
@@ -94,9 +94,8 @@ const [visible, setVisible] = useState(false);
          onPointerOut={handlePointerOut}
          visible={visible}
          material={startingMaterial}
+         />
          </Float>
         </group>
-
-    )
-
+    );
 }
