@@ -4,7 +4,8 @@ import * as THREE from "three"
 import { Canvas } from "@react-three/fiber"
 import { ContactShadows, Float, Environment } from "@react-three/drei"
 import { gsap } from "gsap"
-import { Suspense } from "react"
+import { Suspense, useRef } from "react"
+import { func } from "three/examples/jsm/nodes/Nodes.js"
 
 export default function Shapes() {
     return (
@@ -29,7 +30,7 @@ export default function Shapes() {
         </div>
     )
 }
-function Geometries( {
+function Geometries() {
     const geometries = [
         {
             position: [0, 0, 0],
@@ -44,4 +45,32 @@ function Geometries( {
 
     // Pass to Geometry
 
-})
+}
+
+
+
+function Geometry({r, position, geometry, materials}){
+    const meshRef = useRef()
+const [visible, setVisible] = useState(false);
+
+    const startingMaterial = getRandomMaterial();
+
+    function getRandomMaterial() {
+        return gsap.utils.random(materials);
+    }
+
+    function handleClick(e){
+        const nesg = e.object;
+
+        gsap.to(mesh.rotation,{
+            x: `+=${gsap.utils.random(0,2)}`
+            y: `+=${gsap.utils.random(0,2)}`
+            z: `+=${gsap.utils.random(0,2)}`,
+            duration: 1.3,
+            ease: "elastic.out(1,0.3)"
+            yoyo: true,
+        })
+
+
+    }
+}
