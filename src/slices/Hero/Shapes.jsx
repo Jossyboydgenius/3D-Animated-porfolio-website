@@ -67,10 +67,14 @@ const [visible, setVisible] = useState(false);
             y: `+=${gsap.utils.random(0,2)}`,
             z: `+=${gsap.utils.random(0,2)}`,
             duration: 1.3,
-            ease: "elastic.out(1,0.3)"
+            ease: "elastic.out(1,0.3)",
             yoyo: true,
-        })
+        });
+        mesh.material = getRandomMaterial();
 
 
     }
+
+    
+
 }
