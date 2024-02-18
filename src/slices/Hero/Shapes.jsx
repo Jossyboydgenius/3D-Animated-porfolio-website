@@ -30,11 +30,18 @@ export default function Shapes() {
     )
 }
 function Geometries( {
-    const Geometries = [
+    const geometries = [
         {
             position: [0, 0, 0],
             r: 0.3,
-            geometry: new THREE.IcosahedronGeometry(3)
-        }
+            geometry: new THREE.IcosahedronGeometry(3) // Gem
+        },
+    ];
+
+    const materials = [
+        new THREE.MeshNormalMaterial()
     ]
+
+    // Pass to
+
 })
