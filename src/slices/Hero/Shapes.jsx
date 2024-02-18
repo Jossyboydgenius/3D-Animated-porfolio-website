@@ -14,8 +14,7 @@ export default function Shapes() {
             shadows 
             gl={{ antialias: false }} 
             dpr={1, 1.5} 
-            camera={{ position: [0, 0, 25], 
-            fov: 30, near: 1, far: 40 }}>
+            camera={{ position: [0, 0, 25], fov: 30, near: 1, far: 40 }}>
             <Suspense fallback={null}>
                 <ContactShadows
                 position={[0, -3.5, 0]}
