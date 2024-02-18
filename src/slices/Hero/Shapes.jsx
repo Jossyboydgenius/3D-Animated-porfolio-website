@@ -60,7 +60,7 @@ function Geometries() {
 
 function Geometry({r, position, geometry, materials}){
     const meshRef = useRef()
-const [visible, setVisible] = useState(false);
+const [visible, setVisible] = useState(true);
 
     const startingMaterial = getRandomMaterial();
 
