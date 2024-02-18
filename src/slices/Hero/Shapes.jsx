@@ -24,9 +24,10 @@ export default function Shapes() {
                 opacity={0.65}
                 scale={40}
                 blur={1}
-                far={9} />
+                far={9} 
+                />
                 <Environment preset="studio" />
-                </Suspense>
+              </Suspense>
             </Canvas>
         </div>
     )
