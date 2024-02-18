@@ -56,8 +56,6 @@ function Geometries() {
 
 }
 
-
-
 function Geometry({r, position, geometry, materials}){
     const meshRef = useRef()
     const [visible, setVisible] = useState(true);
@@ -68,7 +66,7 @@ function Geometry({r, position, geometry, materials}){
         return gsap.utils.random(materials);
     }
 
-    function handleClick(e){
+    function handleClick(e) {
         const mesh = e.object;
 
         gsap.to(mesh.rotation,{
