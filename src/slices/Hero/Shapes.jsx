@@ -88,7 +88,6 @@ function Geometry({ r, position, geometry, materials }) {
 
     const handlePointerOut = () => {
         document.body.style.cursor = "default";
-
     };
 
     useEffect(()=>{
