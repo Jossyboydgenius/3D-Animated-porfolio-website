@@ -91,7 +91,15 @@ function Geometry({ r, position, geometry, materials }) {
 
     };
 
-    useEffect
+    useEffect(()=>{
+        gsap.context((=>{
+            setVisible(true)
+            gsap.from,(meshRef.current.scale,
+                {
+                    
+                })
+        }))
+    })
     
     return (
         <group position={position} ref ={meshRef}>
