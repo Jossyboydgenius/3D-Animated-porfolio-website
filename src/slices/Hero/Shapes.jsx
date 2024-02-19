@@ -5,7 +5,7 @@ import { Canvas } from "@react-three/fiber"
 import { ContactShadows, Float, Environment } from "@react-three/drei"
 import { gsap } from "gsap"
 import { Suspense, useEffect, useRef, useState } from "react"
-import { func } from "three/examples/jsm/nodes/Nodes.js"
+// import { func } from "three/examples/jsm/nodes/Nodes.js"
 
 
 export default function Shapes() {
