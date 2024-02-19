@@ -92,7 +92,7 @@ function Geometry({ r, position, geometry, materials }) {
     };
 
     useEffect(()=>{
-        gsap.context((=>{
+        gsap.context(() => {
             setVisible(true)
             gsap.from,(meshRef.current.scale,
                 {
@@ -103,7 +103,7 @@ function Geometry({ r, position, geometry, materials }) {
                     ease: "elastic.out(1,0.3)",
                     delay: 0.3,
                 })
-        }))
+        })
     })
     
     return (
