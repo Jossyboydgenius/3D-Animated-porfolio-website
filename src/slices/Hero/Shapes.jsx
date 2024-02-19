@@ -104,7 +104,7 @@ function Geometry({ r, position, geometry, materials }) {
                     delay: 0.3,
                 })
         })
-    })
+    }, []);
     
     return (
         <group position={position} ref ={meshRef}>
