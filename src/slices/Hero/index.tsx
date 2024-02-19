@@ -104,4 +104,5 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   );
 };
 
+
 export default Hero;
