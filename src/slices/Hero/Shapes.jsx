@@ -80,8 +80,6 @@ function Geometry({ r, position, geometry, materials }) {
             yoyo: true,
         });
         mesh.material = getRandomMaterial();
-
-
     }
 
     const handlePointerOver = () =>{
