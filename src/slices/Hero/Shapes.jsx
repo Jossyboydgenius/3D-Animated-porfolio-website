@@ -83,11 +83,11 @@ function Geometry({ r, position, geometry, materials }) {
     }
 
     const handlePointerOver = () => {
-        document.body.style.cursor = "pointer"
+        document.body.style.cursor = "pointer";
     };
 
     const handlePointerOut = () => {
-        document.body.style.cursor = "default"
+        document.body.style.cursor = "default";
 
     };
 
