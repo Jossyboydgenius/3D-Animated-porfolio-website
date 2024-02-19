@@ -34,7 +34,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         ease: "elastic.out(1,0.3)",
         duration: 1,
         transformOrigin: "left top",
-        delay:0.5,
+        delay: 0.1,
         stagger: {
           each: 0.1,
           from: "random",
@@ -103,6 +103,5 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     </Bounded>
   );
 };
-
 
 export default Hero;

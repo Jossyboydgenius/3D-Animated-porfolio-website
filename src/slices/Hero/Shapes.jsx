@@ -4,8 +4,9 @@ import * as THREE from "three"
 import { Canvas } from "@react-three/fiber"
 import { ContactShadows, Float, Environment } from "@react-three/drei"
 import { gsap } from "gsap"
-import { Suspense, useRef } from "react"
+import { Suspense, useRef, useState } from "react"
 import { func } from "three/examples/jsm/nodes/Nodes.js"
+
 
 export default function Shapes() {
     return (
@@ -59,7 +60,7 @@ function Geometries() {
 
 function Geometry({ r, position, geometry, materials }) {
     const meshRef = useRef();
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = useState(false);
 
     const startingMaterial = getRandomMaterial();
 
@@ -90,7 +91,7 @@ function Geometry({ r, position, geometry, materials }) {
     const handlePointerOut = () =>{
         document.body.style.cursor = "default"
 
-    }
+    };
     
     return (
         <group position={position} ref ={meshRef}>
