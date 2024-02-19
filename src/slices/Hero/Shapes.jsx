@@ -4,7 +4,7 @@ import * as THREE from "three"
 import { Canvas } from "@react-three/fiber"
 import { ContactShadows, Float, Environment } from "@react-three/drei"
 import { gsap } from "gsap"
-import { Suspense, useRef, useState } from "react"
+import { Suspense, useEffect, useRef, useState } from "react"
 import { func } from "three/examples/jsm/nodes/Nodes.js"
 
 
@@ -90,6 +90,8 @@ function Geometry({ r, position, geometry, materials }) {
         document.body.style.cursor = "default"
 
     };
+
+    useEffect
     
     return (
         <group position={position} ref ={meshRef}>
