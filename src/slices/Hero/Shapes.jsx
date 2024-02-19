@@ -82,11 +82,11 @@ function Geometry({ r, position, geometry, materials }) {
         mesh.material = getRandomMaterial();
     }
 
-    const handlePointerOver = () =>{
+    const handlePointerOver = () => {
         document.body.style.cursor = "pointer"
     };
 
-    const handlePointerOut = () =>{
+    const handlePointerOut = () => {
         document.body.style.cursor = "default"
 
     };
