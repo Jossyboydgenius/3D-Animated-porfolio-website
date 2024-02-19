@@ -57,7 +57,7 @@ function Geometries() {
 
 }
 
-function Geometry({r, position, geometry, materials}) {
+function Geometry({ r, position, geometry, materials }) {
     const meshRef = useRef();
     const [visible, setVisible] = useState(true);
 
