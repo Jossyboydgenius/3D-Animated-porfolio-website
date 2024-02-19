@@ -96,7 +96,11 @@ function Geometry({ r, position, geometry, materials }) {
             setVisible(true)
             gsap.from,(meshRef.current.scale,
                 {
-                    
+                    x:0,
+                    y:0,
+                    z:0,
+                    duration: 1,
+                    ease: "elastic.out(1,0.3)",
                 })
         }))
     })
