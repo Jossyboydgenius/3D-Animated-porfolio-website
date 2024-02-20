@@ -118,7 +118,7 @@ function Geometry({ r, position, geometry, materials }) {
                     delay: 0.3,
                 })
         })
-        return ()=>ctx.revert() //cleanup
+        return ()=>ctx.revert(); //cleanup
     }, []);
     
     return (
