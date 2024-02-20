@@ -41,7 +41,7 @@ function Geometries() {
             geometry: new THREE.IcosahedronGeometry(3), // Gem
         },
         {
-            position: [0, 0, 0],
+            position: [1, -0.75, 4],
             r: 0.3,
             geometry: new THREE.IcosahedronGeometry(0.5, 1.6, 2, 16), // Pill
         },
