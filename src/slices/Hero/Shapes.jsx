@@ -37,13 +37,13 @@ function Geometries() {
     const geometries = [
         {
             position: [0, 0, 0],
-            r: 0.4,
+            r: 0.3,
             geometry: new THREE.IcosahedronGeometry(3), // Gem
         },
         {
             position: [1, -0.75, 4],
-            r: 0.3,
-            geometry: new THREE.ICapsuleGeometry(0.5, 1.6, 2, 16), // Pill
+            r: 0.4,
+            geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16), // Pill
         },
         {
             position: [0, 0, 0],
