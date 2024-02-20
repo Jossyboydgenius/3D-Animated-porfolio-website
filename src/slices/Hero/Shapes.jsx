@@ -85,7 +85,7 @@ function Geometry({ r, position, geometry, materials }) {
 
     function handleClick(e) {
         const mesh = e.object;
-    
+        console.log(mesh.material.color); // Add this line
         gsap.to(mesh.rotation, {
             x: `+=${gsap.utils.random(0, 2)}`,
             y: `+=${gsap.utils.random(0, 2)}`,
