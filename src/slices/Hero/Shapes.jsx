@@ -45,6 +45,10 @@ function Geometries() {
     const materials = [
         new THREE.MeshNormalMaterial(),
         new THREE.MeshNormalMaterial({ color: 0x2ecc71, roughness: 0 }),
+        new THREE.MeshNormalMaterial({ color: 0x2ecc71, roughness: 0 }),
+        new THREE.MeshNormalMaterial({ color: 0x2ecc71, roughness: 0 }),
+        new THREE.MeshNormalMaterial({ color: 0x2ecc71, roughness: 0 }),
+        new THREE.MeshNormalMaterial({ color: 0x2ecc71, roughness: 0 }),
     ];
 
     return geometries.map(({position, r, geometry})=>(
