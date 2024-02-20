@@ -105,21 +105,45 @@ function Geometry({ r, position, geometry, materials }) {
         document.body.style.cursor = "default";
     };
 
-    useEffect(()=>{
-        let ctx = gsap.context(() => {
-            setVisible(true)
-            gsap.from(meshRef.current.scale,
-                {
-                    x:0,
-                    y:0,
-                    z:0,
-                    duration: 1,
-                    ease: "elastic.out(1,0.3)",
-                    delay: 0.3,
-                })
-        })
-        return ()=>ctx.revert() //cleanup
+    useEffect(() => {
+        let isMounted = true;
+    
+        gsap.from(meshRef.current.scale, {
+            x: 0,
+            y: 0,
+            z: 0,
+            duration: 1,
+            ease: "elastic.out(1,0.3)",
+            delay: 0.3,
+            onComplete: () => {
+                if (isMounted) {
+                    setVisible(true);
+                }
+            },
+        });
+    
+        return () => {
+            isMounted = false;
+        }; // cleanup
     }, []);
+    
+    
+
+    // useEffect(()=>{
+    //     let ctx = gsap.context(() => {
+    //         setVisible(true)
+    //         gsap.from(meshRef.current.scale,
+    //             {
+    //                 x:0,
+    //                 y:0,
+    //                 z:0,
+    //                 duration: 1,
+    //                 ease: "elastic.out(1,0.3)",
+    //                 delay: 0.3,
+    //             })
+    //     })
+    //     return ()=>ctx.revert() //cleanup
+    // }, []);
     
     return (
         <group position={position} ref ={meshRef}>
