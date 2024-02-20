@@ -16,7 +16,7 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  * Component for "Hero" Slices.
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
-  const components = useRef(null)
+  const components = useRef(null);
 
     useEffect(()=>{
       let ctx = gsap.context(()=> {
