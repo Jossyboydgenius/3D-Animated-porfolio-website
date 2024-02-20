@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
@@ -7,32 +7,32 @@ import { gsap } from "gsap";
 import { Suspense, useRef, useState, useEffect } from "react"; // <-- Added useEffect import
 import { func } from "three/examples/jsm/nodes/Nodes.js";
 
-
 export default function Shapes() {
     return (
         <div className="row-span-1 row-start-1 -mt-9 aspect-square md:col-span-1 md:col-start-2 md:mt-0">
-            <Canvas 
-            className="z-0" 
-            shadows 
-            gl={{ antialias: false }} 
-            dpr={[1, 1.5]} 
-            camera={{ position: [0, 0, 25], fov: 30, near: 1, far: 40 }}
+            <Canvas
+                className="z-0"
+                shadows
+                gl={{ antialias: false }}
+                dpr={[1, 1.5]}
+                camera={{ position: [0, 0, 25], fov: 30, near: 1, far: 40 }}
             >
-            <Suspense fallback={null}>
-                <Geometries />
-                <ContactShadows
-                position={[0, -3.5, 0]}
-                opacity={0.65}
-                scale={40}
-                blur={1}
-                far={9} 
-                />
-                <Environment preset="studio" />
-              </Suspense>
+                <Suspense fallback={null}>
+                    <Geometries />
+                    <ContactShadows
+                        position={[0, -3.5, 0]}
+                        opacity={0.65}
+                        scale={40}
+                        blur={1}
+                        far={9}
+                    />
+                    <Environment preset="studio" />
+                </Suspense>
             </Canvas>
         </div>
-    )
+    );
 }
+
 function Geometries() {
     const geometries = [
         {
@@ -89,17 +89,17 @@ function Geometries() {
 
     return geometries.map(({ position, r, geometry }) => (
         <Geometry
-        key={JSON.stringify(position)}
-        position={position.map((p)=> p * 2)}
-        soundEffects={soundEffects}
-        geometry={geometry}
-        materials={materials}
-        r={r}
+            key={JSON.stringify(position)}
+            position={position.map((p) => p * 2)}
+            soundEffects={soundEffects}
+            geometry={geometry}
+            materials={materials} // Correction: pass materials here
+            r={r}
         />
     ));
 }
 
-function Geometry({ r, position, geometry, material, soundEffects }) {
+function Geometry({ r, position, geometry, materials, soundEffects }) {
     const meshRef = useRef();
     const [visible, setVisible] = useState(false);
 
@@ -107,7 +107,7 @@ function Geometry({ r, position, geometry, material, soundEffects }) {
 
     function getRandomMaterial() {
         return gsap.utils.random(materials);
-    };
+    }
 
     function handleClick(e) {
         const mesh = e.object;
@@ -115,15 +115,15 @@ function Geometry({ r, position, geometry, material, soundEffects }) {
         gsap.utils.random(soundEffects).play();
 
         gsap.to(mesh.rotation, {
-            x: `+=${gsap.utils.random(0,2)}`,
-            y: `+=${gsap.utils.random(0,2)}`,
-            z: `+=${gsap.utils.random(0,2)}`,
+            x: `+=${gsap.utils.random(0, 2)}`,
+            y: `+=${gsap.utils.random(0, 2)}`,
+            z: `+=${gsap.utils.random(0, 2)}`,
             duration: 1.3,
             ease: "elastic.out(1,0.3)",
             yoyo: true,
         });
         mesh.material = getRandomMaterial();
-    };
+    }
 
     const handlePointerOver = () => {
         document.body.style.cursor = "pointer";
@@ -133,34 +133,33 @@ function Geometry({ r, position, geometry, material, soundEffects }) {
         document.body.style.cursor = "default";
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         let ctx = gsap.context(() => {
-            setVisible(true)
-            gsap.from(meshRef.current.scale,
-                {
-                    x:0,
-                    y:0,
-                    z:0,
-                    duration: 1,
-                    ease: "elastic.out(1,0.3)",
-                    delay: 0.3,
-                })
-        })
-        return ()=>ctx.revert(); //cleanup
+            setVisible(true);
+            gsap.from(meshRef.current.scale, {
+                x: 0,
+                y: 0,
+                z: 0,
+                duration: 1,
+                ease: "elastic.out(1,0.3)",
+                delay: 0.3,
+            });
+        });
+        return () => ctx.revert(); //cleanup
     }, []);
-    
+
     return (
-        <group position={position} ref ={meshRef}>
-         <Float speed={5 * r} rotationIntensity={6 * r} floatIntensity={5 * r}>
-         <mesh
-         geometry={geometry}
-         onClick={handleClick}
-         onPointerOver={handlePointerOver}
-         onPointerOut={handlePointerOut}
-         visible={visible}
-         material={startingMaterial}
-         />
-         </Float>
+        <group position={position} ref={meshRef}>
+            <Float speed={5 * r} rotationIntensity={6 * r} floatIntensity={5 * r}>
+                <mesh
+                    geometry={geometry}
+                    onClick={handleClick}
+                    onPointerOver={handlePointerOver}
+                    onPointerOut={handlePointerOut}
+                    visible={visible}
+                    material={startingMaterial}
+                />
+            </Float>
         </group>
     );
 }
