@@ -61,7 +61,7 @@ function Geometries() {
         }),
     ];
 
-    return geometries.map(({position, r, geometry})=>(
+    return geometries.map(({ position, r, geometry }) => (
         <Geometry
         key={JSON.stringify(position)}
         position={position.map((p)=>p*2)}
