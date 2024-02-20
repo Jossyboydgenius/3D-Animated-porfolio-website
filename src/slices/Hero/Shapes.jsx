@@ -85,17 +85,35 @@ function Geometry({ r, position, geometry, materials }) {
 
     function handleClick(e) {
         const mesh = e.object;
-
-        gsap.to(mesh.rotation,{
-            x: `+=${gsap.utils.random(0,2)}`,
-            y: `+=${gsap.utils.random(0,2)}`,
-            z: `+=${gsap.utils.random(0,2)}`,
+    
+        gsap.to(mesh.rotation, {
+            x: `+=${gsap.utils.random(0, 2)}`,
+            y: `+=${gsap.utils.random(0, 2)}`,
+            z: `+=${gsap.utils.random(0, 2)}`,
             duration: 1.3,
             ease: "elastic.out(1,0.3)",
             yoyo: true,
+            onComplete: () => {
+                mesh.material = getRandomMaterial();
+                mesh.material.needsUpdate = true; // Ensure material update is reflected
+            },
         });
-        mesh.material = getRandomMaterial();
     }
+    
+
+    // function handleClick(e) {
+    //     const mesh = e.object;
+
+    //     gsap.to(mesh.rotation,{
+    //         x: `+=${gsap.utils.random(0,2)}`,
+    //         y: `+=${gsap.utils.random(0,2)}`,
+    //         z: `+=${gsap.utils.random(0,2)}`,
+    //         duration: 1.3,
+    //         ease: "elastic.out(1,0.3)",
+    //         yoyo: true,
+    //     });
+    //     mesh.material = getRandomMaterial();
+    // }
 
     const handlePointerOver = () => {
         document.body.style.cursor = "pointer";
