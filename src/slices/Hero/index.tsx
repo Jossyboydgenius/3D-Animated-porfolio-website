@@ -48,7 +48,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           y:20,
           opacity:0,
           scale:1.2,
-        }, {
+        }, 
+        {
           opacity:1,
           y:0,
           duration:1,
