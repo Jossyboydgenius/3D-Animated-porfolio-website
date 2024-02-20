@@ -4,7 +4,7 @@ import clsx from "clsx";
 type BoundedProps = {
     as?: React.ElementType;
     className: React.ReactNode;
-    children?: React.ReactNode;  // Add this line
+
 }
 
 const Bounded = React.forwardRef<HTMLDivElement, BoundedProps>(

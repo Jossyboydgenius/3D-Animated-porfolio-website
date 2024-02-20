@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows, Float, Environment } from "@react-three/drei";
 import { gsap } from "gsap";
-import { Suspense, useRef, useState, useEffect } from "react";
+import { Suspense, useRef, useState, useEffect } from "react"; // <-- Added useEffect import
 import { func } from "three/examples/jsm/nodes/Nodes.js";
 
 
@@ -85,35 +85,17 @@ function Geometry({ r, position, geometry, materials }) {
 
     function handleClick(e) {
         const mesh = e.object;
-        console.log(mesh.material.color); // Add this line
-        gsap.to(mesh.rotation, {
-            x: `+=${gsap.utils.random(0, 2)}`,
-            y: `+=${gsap.utils.random(0, 2)}`,
-            z: `+=${gsap.utils.random(0, 2)}`,
+
+        gsap.to(mesh.rotation,{
+            x: `+=${gsap.utils.random(0,2)}`,
+            y: `+=${gsap.utils.random(0,2)}`,
+            z: `+=${gsap.utils.random(0,2)}`,
             duration: 1.3,
             ease: "elastic.out(1,0.3)",
             yoyo: true,
-            onComplete: () => {
-                mesh.material = getRandomMaterial();
-                mesh.material.needsUpdate = true; // Ensure material update is reflected
-            },
         });
+        mesh.material = getRandomMaterial();
     }
-    
-
-    // function handleClick(e) {
-    //     const mesh = e.object;
-
-    //     gsap.to(mesh.rotation,{
-    //         x: `+=${gsap.utils.random(0,2)}`,
-    //         y: `+=${gsap.utils.random(0,2)}`,
-    //         z: `+=${gsap.utils.random(0,2)}`,
-    //         duration: 1.3,
-    //         ease: "elastic.out(1,0.3)",
-    //         yoyo: true,
-    //     });
-    //     mesh.material = getRandomMaterial();
-    // }
 
     const handlePointerOver = () => {
         document.body.style.cursor = "pointer";
@@ -123,45 +105,21 @@ function Geometry({ r, position, geometry, materials }) {
         document.body.style.cursor = "default";
     };
 
-    useEffect(() => {
-        let isMounted = true;
-    
-        gsap.from(meshRef.current.scale, {
-            x: 0,
-            y: 0,
-            z: 0,
-            duration: 1,
-            ease: "elastic.out(1,0.3)",
-            delay: 0.3,
-            onComplete: () => {
-                if (isMounted) {
-                    setVisible(true);
-                }
-            },
-        });
-    
-        return () => {
-            isMounted = false;
-        }; // cleanup
+    useEffect(()=>{
+        let ctx = gsap.context(() => {
+            setVisible(true)
+            gsap.from(meshRef.current.scale,
+                {
+                    x:0,
+                    y:0,
+                    z:0,
+                    duration: 1,
+                    ease: "elastic.out(1,0.3)",
+                    delay: 0.3,
+                })
+        })
+        return ()=>ctx.revert() //cleanup
     }, []);
-    
-    
-
-    // useEffect(()=>{
-    //     let ctx = gsap.context(() => {
-    //         setVisible(true)
-    //         gsap.from(meshRef.current.scale,
-    //             {
-    //                 x:0,
-    //                 y:0,
-    //                 z:0,
-    //                 duration: 1,
-    //                 ease: "elastic.out(1,0.3)",
-    //                 delay: 0.3,
-    //             })
-    //     })
-    //     return ()=>ctx.revert() //cleanup
-    // }, []);
     
     return (
         <group position={position} ref ={meshRef}>
