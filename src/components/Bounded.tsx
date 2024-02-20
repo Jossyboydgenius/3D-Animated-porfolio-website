@@ -32,6 +32,7 @@ import clsx from "clsx";
 
 type BoundedProps = {
   as?: React.ElementType;
+  className: React.ReactNode;
   className?: React.ReactNode;
   children: React.ReactNode; // Add the 'children' property
 };
