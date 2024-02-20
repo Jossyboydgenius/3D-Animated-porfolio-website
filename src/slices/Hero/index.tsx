@@ -56,9 +56,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           scale:1,
           ease: "elastic.out(1,0.3)",
         }
-       )
-
-
+       );
+       
       }, components);
       return () => ctx.revert();
     }, []);
