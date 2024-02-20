@@ -91,7 +91,7 @@ function Geometry({ r, position, geometry, materials }) {
     };
 
     useEffect(()=>{
-        gsap.context(() => {
+        let ctx = gsap.context(() => {
             setVisible(true)
             gsap.from(meshRef.current.scale,
                 {
