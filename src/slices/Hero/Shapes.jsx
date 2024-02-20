@@ -81,6 +81,10 @@ function Geometries() {
         }),
     ];
 
+    const soundEffects = [
+        new Audio("/sounds/knock1.ogg"),
+    ]
+
     return geometries.map(({ position, r, geometry }) => (
         <Geometry
         key={JSON.stringify(position)}
