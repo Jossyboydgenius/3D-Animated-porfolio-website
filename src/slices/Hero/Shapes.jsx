@@ -42,11 +42,7 @@ function Geometries() {
         },
         {
             position: [1, -0.75, 4],
-<<<<<<< HEAD
             r: 0.4,
-=======
-            r: 0.3,
->>>>>>> 3f18caa25a0652200abd24c7a29ca2f2c350e428
             geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16), // Pill
         },
         {
