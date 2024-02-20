@@ -90,14 +90,14 @@ function Geometries() {
     return geometries.map(({ position, r, geometry }) => (
         <Geometry
         key={JSON.stringify(position)}
-        position={position.map((p)=>p*2)}
+        position={position.map((p)=>p * 2)}
+        soundEffects={soundEffects}
         geometry={geometry}
         materials={materials}
         r={r}
         />
     ));
-
-};
+}
 
 function Geometry({ r, position, geometry, materials }) {
     const meshRef = useRef();
