@@ -71,7 +71,7 @@ function Geometries() {
         />
     ));
 
-}
+};
 
 function Geometry({ r, position, geometry, materials }) {
     const meshRef = useRef();
@@ -81,7 +81,7 @@ function Geometry({ r, position, geometry, materials }) {
 
     function getRandomMaterial() {
         return gsap.utils.random(materials);
-    }
+    };
 
     function handleClick(e) {
         const mesh = e.object;
@@ -95,7 +95,7 @@ function Geometry({ r, position, geometry, materials }) {
             yoyo: true,
         });
         mesh.material = getRandomMaterial();
-    }
+    };
 
     const handlePointerOver = () => {
         document.body.style.cursor = "pointer";
