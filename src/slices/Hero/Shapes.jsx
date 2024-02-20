@@ -38,7 +38,27 @@ function Geometries() {
         {
             position: [0, 0, 0],
             r: 0.3,
-            geometry: new THREE.IcosahedronGeometry(3) // Gem
+            geometry: new THREE.IcosahedronGeometry(3), // Gem
+        },
+        {
+            position: [0, 0, 0],
+            r: 0.3,
+            geometry: new THREE.IcosahedronGeometry(0.5, 1.6, 2, 16), // Pill
+        },
+        {
+            position: [0, 0, 0],
+            r: 0.3,
+            geometry: new THREE.IcosahedronGeometry(3), // Gem
+        },
+        {
+            position: [0, 0, 0],
+            r: 0.3,
+            geometry: new THREE.IcosahedronGeometry(3), // Gem
+        },
+        {
+            position: [0, 0, 0],
+            r: 0.3,
+            geometry: new THREE.IcosahedronGeometry(3), // Gem
         },
     ];
 
