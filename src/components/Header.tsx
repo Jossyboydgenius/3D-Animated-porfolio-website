@@ -14,8 +14,9 @@ export default async function Header () {
                             {settings.data.name}
                         </Link>
                     </li>
+                    <li></li>
                 </ul>
             </nav>
         </header>
-    )
+    );
 }
