@@ -13,7 +13,7 @@ import Shapes from "./Shapes";
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
 /**
- * Component for "Hero" Slices.
+ * Component for "Hero" Slices. 
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   const components = useRef(null);
