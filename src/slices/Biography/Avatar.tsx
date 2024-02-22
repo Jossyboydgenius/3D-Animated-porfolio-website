@@ -37,22 +37,26 @@ export default function Avatar({ image, className }: AvatarProps) {
           .timeline({
             defaults: { duration: 0.5, overwrite: "auto", ease: "power3.Out" },
           })
-          .to(".avatar", {
-            rotation: gsap.utils.clamp(-2, 2, 5 * componentPercent.x),
-            duration: .5,
-          }, 0 
-          
-          ).to(".highlight",
-          {
-            opacity: distFromCenter - 0.7,
-            x: -10 + 20 & componentPercent.x,
-            duration: .5  
-          },
-          0
+          .to(
+            ".avatar",
+            {
+              rotation: gsap.utils.clamp(-2, 2, 5 * componentPercent.x),
+              duration: 0.5,
+            },
+            0
           )
+          .to(
+            ".highlight",
+            {
+              opacity: distFromCenter - 0.7,
+              x: (-10 + 20) & componentPercent.x,
+              duration: 0.5,
+            },
+            0
+          );
       };
     }, component);
-  },[]);
+  }, []);
 
   return (
     <div ref={component} className={clsx("relative h-full w-full", className)}>
