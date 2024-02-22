@@ -1,4 +1,4 @@
-"use client ";
+"use client";
 
 import { ImageField } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
