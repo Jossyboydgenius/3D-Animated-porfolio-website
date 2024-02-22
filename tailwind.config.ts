@@ -10,5 +10,6 @@ const config: Config = {
   ],
   theme: {},
   plugins: [require("tailwindcss/typography")],
+  // plugins: [typography],
 };
 export default config;
