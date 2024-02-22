@@ -10,12 +10,12 @@
 // const Bounded = React.forwardRef<HTMLDivElement, BoundedProps>(
 //     ({ as: Comp = "selection", className, children, ...resrProps}, ref) => {
 //         return (
-//             <Comp 
-//             ref={ref} 
+//             <Comp
+//             ref={ref}
 //             className={clsx("px-4 py-10 md:px-6 md:py-14 lg:py-16", className)}
 //             {...resrProps}
 //             >
-//                 <div className="mx-auto w-full max-w-7x1">                    
+//                 <div className="mx-auto w-full max-w-7x1">
 //                 {children}
 //                 </div>
 //             </Comp>
@@ -44,9 +44,7 @@ const Bounded = React.forwardRef<HTMLDivElement, BoundedProps>(
         className={clsx("px-4 py-10 md:px-6 md:py-14 lg:py-16", className)}
         {...restProps}
       >
-        <div className="mx-auto w-full max-w-7x1">
-          {children}
-        </div>
+        <div className="mx-auto w-full max-w-7x1">{children}</div>
       </Comp>
     );
   }

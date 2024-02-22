@@ -18,8 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-slate-900 text-slate-100">
       <body className={urbanist.className}>
-      <Header />
-      {children}
+        <Header />
+        {children}
       </body>
     </html>
   );
