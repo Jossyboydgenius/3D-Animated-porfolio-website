@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@slicemachine/adapter-next": "^0.3.35",
+    "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
