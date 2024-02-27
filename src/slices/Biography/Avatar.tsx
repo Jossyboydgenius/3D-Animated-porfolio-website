@@ -11,7 +11,9 @@ type AvatarProps = {
   className?: string;
 };
 
-export default function Avatar({ image, className }: AvatarProps) {
+export default function Avatar({
+   image, className
+   }: AvatarProps) {
   const component = useRef(null);
 
   useEffect(() => {
