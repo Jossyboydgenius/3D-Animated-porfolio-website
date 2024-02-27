@@ -42,5 +42,3 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
 };
 
 export default Biography;
-
-
