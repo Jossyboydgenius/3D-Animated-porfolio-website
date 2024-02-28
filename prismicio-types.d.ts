@@ -273,7 +273,7 @@ interface SettingsDocumentData {
    * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: settings.meta_title
-   * - **Tab**: SEA and Metadata
+   * - **Tab**: SEO and Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
   meta_title: prismic.KeyTextField;
@@ -284,7 +284,7 @@ interface SettingsDocumentData {
    * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: settings.meta_description
-   * - **Tab**: SEA and Metadata
+   * - **Tab**: SEO and Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_description: prismic.KeyTextField;
@@ -295,7 +295,7 @@ interface SettingsDocumentData {
    * - **Field Type**: Image
    * - **Placeholder**: *None*
    * - **API ID Path**: settings.og_image
-   * - **Tab**: SEA and Metadata
+   * - **Tab**: SEO and Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   og_image: prismic.ImageField<never>;
