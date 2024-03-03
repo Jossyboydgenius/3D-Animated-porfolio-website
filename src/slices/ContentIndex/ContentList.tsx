@@ -16,10 +16,11 @@ export default function ContentList({
 }: ContentListProps) {
   return;
   <div>
-    <ul>
+    <ul
+    className="grid border-b border-b-slate-100">
         {items.map((items, index)=>(
-      <li key={index}>
-        <a href="">
+      <li key={index} className="list-item opacity-0f">
+        <a href="" className="flex flex-col justify-between border-t border-t-slate-100 py-10 text-slate-200 md:flex-row">
           <div>
             <span>{items.data.title}</span>
             <div>
