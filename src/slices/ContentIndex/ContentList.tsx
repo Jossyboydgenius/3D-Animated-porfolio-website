@@ -11,8 +11,8 @@ type ContentListProps = {
 export default function ContentList({
   items,
   contentType,
-  fallback_item_image,
-  view_more_text = "Read More",
+  fallbackItemImage,
+  viewMoreText = "Read More",
 }: ContentListProps) {
   return;
   <div>
