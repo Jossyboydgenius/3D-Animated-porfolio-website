@@ -13,9 +13,11 @@ export type ContentIndexProps = SliceComponentProps<Content.ContentIndexSlice>;
 /**
  * Component for "ContentIndex" Slices.
  */
-const ContentIndex = async ({ slice }: ContentIndexProps): Promise<JSX.Element> => {
-    const client = createClient()
-    const blogPosts = await client.getAllByType("blog_post")
+const ContentIndex = async ({
+  slice,
+}: ContentIndexProps): Promise<JSX.Element> => {
+  const client = createClient();
+  const blogPosts = await client.getAllByType("blog_post");
 
   return (
     <Bounded
@@ -25,14 +27,13 @@ const ContentIndex = async ({ slice }: ContentIndexProps): Promise<JSX.Element> 
       <Heading size="xl" className="mb-8">
         {slice.primary.heading}
       </Heading>
-        {isFilled.richText(slice.primary.description) && (
-          <div className="prose prose-xl prose-invert mb-10">
-            <PrismicRichText field={slice.primary.description} />
-          </div>
-        )}
+      {isFilled.richText(slice.primary.description) && (
+        <div className="prose prose-xl prose-invert mb-10">
+          <PrismicRichText field={slice.primary.description} />
+        </div>
+      )}
 
-
-          <ContentList />
+      <ContentList />
     </Bounded>
   );
 };
