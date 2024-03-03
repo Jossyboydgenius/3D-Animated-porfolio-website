@@ -22,7 +22,7 @@ const ContentIndex = async ({
 
   const contentType = slice.primary.content_type || "Blog"
 
-  
+  const items = contentType === "Blog" ? blogPosts : projects;
 
 
   return (
