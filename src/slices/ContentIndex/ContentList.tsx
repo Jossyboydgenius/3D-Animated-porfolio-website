@@ -16,23 +16,25 @@ export default function ContentList({
 }: ContentListProps) {
   return;
   <div>
-    <ul
-    className="grid border-b border-b-slate-100">
-        {items.map((items, index)=>(
-      <li key={index} className="list-item opacity-0f">
-        <a href="" className="flex flex-col justify-between border-t border-t-slate-100 py-10 text-slate-200 md:flex-row">
-          <div>
-            <span>{items.data.title}</span>
+    <ul className="grid border-b border-b-slate-100">
+      {items.map((items, index) => (
+        <li key={index} className="list-item opacity-0f">
+          <a
+            href=""
+            className="flex flex-col justify-between border-t border-t-slate-100 py-10 text-slate-200 md:flex-row"
+          >
             <div>
-                {items.tags.map((tag, index)=>(
-                    <span key={index}>{tag}</span>
+              <span>{items.data.title}</span>
+              <div>
+                {items.tags.map((tag, index) => (
+                  <span key={index}>{tag}</span>
                 ))}
+              </div>
             </div>
-          </div>
-          <span>{viewMoreText}</span>
-        </a>
-      </li>
-        ))}
+            <span>{viewMoreText}</span>
+          </a>
+        </li>
+      ))}
     </ul>
   </div>;
 }
