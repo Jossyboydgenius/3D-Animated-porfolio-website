@@ -18,6 +18,7 @@ const ContentIndex = async ({
 }: ContentIndexProps): Promise<JSX.Element> => {
   const client = createClient();
   const blogPosts = await client.getAllByType("blog_post");
+  const projects = await client.getAllByType("project");
 
   return (
     <Bounded
