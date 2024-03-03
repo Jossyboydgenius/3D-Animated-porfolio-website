@@ -102,7 +102,7 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = TechListSlice | BiographySlice;
+type PageDocumentDataSlicesSlice = BiographySlice;
 
 /**
  * Content for Page documents
