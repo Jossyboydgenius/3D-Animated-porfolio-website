@@ -2,7 +2,7 @@
 
 import { Content, isFilled } from "@prismicio/client";
 import Link from "next/link";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
 
 type ContentListProps = {
@@ -19,6 +19,7 @@ export default function ContentList({
   viewMoreText = "Read More",
 }: ContentListProps) {
   const component = useRef(null);
+  const [currentItem, setCurrentItem] = useState<null | number>(null);
 
   const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
 
