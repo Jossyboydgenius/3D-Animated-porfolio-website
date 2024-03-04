@@ -1,6 +1,6 @@
 import { Content, isFilled } from "@prismicio/client";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 import { MdArrowOutward } from "react-icons/md";
 
 type ContentListProps = {
@@ -16,10 +16,12 @@ export default function ContentList({
   fallbackItemImage,
   viewMoreText = "Read More",
 }: ContentListProps) {
+    const component = useRef(null)
+
     const urlPrefix = contentType === "Blog" ? "/blog" : "/project"
 
   return;
-  <div>
+  <div ref={component}>
     <ul className="grid border-b border-b-slate-100">
       {items.map((items, index) => (
         <>
