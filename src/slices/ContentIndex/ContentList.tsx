@@ -1,3 +1,5 @@
+"use client"
+
 import { Content, isFilled } from "@prismicio/client";
 import Link from "next/link";
 import React, { useRef } from "react";
