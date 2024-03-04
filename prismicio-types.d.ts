@@ -200,7 +200,10 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = ContentIndexSlice | BiographySlice;
+type PageDocumentDataSlicesSlice =
+  | TechListSlice
+  | ContentIndexSlice
+  | BiographySlice;
 
 /**
  * Content for Page documents
