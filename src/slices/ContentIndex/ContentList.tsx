@@ -1,6 +1,6 @@
 "use client";
 
-import { Content, isFilled } from "@prismicio/client";
+import { Content, asImageSrc, isFilled } from "@prismicio/client";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
@@ -22,6 +22,17 @@ export default function ContentList({
   const [currentItem, setCurrentItem] = useState<null | number>(null);
 
   const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
+
+  const contentImages = items.map((item)=>{
+    const image = isFilled.image(item.data.image) ? item.data.image : fallbackItemImage;
+
+    return asImageSrc(image, {
+      fit: "crop",
+      w: 220,
+      h: 320,
+      exp: -10
+    })
+  })
 
   return (
     <div ref={component}>
@@ -59,7 +70,7 @@ export default function ContentList({
       <div
         className="hover-reveal  pointer-events-none absolute left-0 top-0 -z-10 h-[320px] rounded-lg bg-over bg-center opacity-0 transition-[background] duration-300"
         style={{
-          backgroundImage: "",
+          backgroundImage: currentItem !== null ? `url(${contentImages[currentItem]})`: "",
         }}
       ></div>
     </div>
