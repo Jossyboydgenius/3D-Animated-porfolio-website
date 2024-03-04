@@ -22,24 +22,22 @@ export default function ContentList({
 
     const urlPrefix = contentType === "Blog" ? "/blog" : "/project"
 
-  return;
+  return (
   <div ref={component}>
     <ul className="grid border-b border-b-slate-100">
-      {items.map((items, index) => (
-        <>
+      {items.map((item, index) => (
+        <React.Fragment key={index}>
         {isFilled.keyText(item.data.title) &&(
-            
         <li key={index} className="list-item opacity-0f">
           <Link
             href={urlPrefix + "/" + item.uid}
             className="flex flex-col justify-between border-t border-t-slate-100 py-10 text-slate-200 md:flex-row"
-            aria-label="item.data.title ||"
-         
+            aria-label={item.data.title || ""}
          >
             <div className="flex flex-col">
-              <span className="text-3xl font-bold">{items.data.title}</span>
+              <span className="text-3xl font-bold">{item.data.title}</span>
               <div className="flex gap-3 text-yellow-400 text-lg font-bold">
-                {items.tags.map((tag, index) => (
+                {item.tags.map((tag, index) => (
                   <span key={index}>{tag}</span>
                 ))}
               </div>
@@ -50,8 +48,11 @@ export default function ContentList({
           </Link>
         </li>
         )}
-        </>
+        </React.Fragment>
       ))}
     </ul>
-  </div>;
+  </div>
+  );
 }
+
+
