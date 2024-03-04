@@ -9,7 +9,7 @@ import { Component, useRef } from "react";
 
 type AvatarProps = {
     image : ImageField;
-    classNmae?: string;
+    className?: string;
 };
 
 export default function Avatar({
