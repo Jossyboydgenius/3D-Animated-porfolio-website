@@ -6,7 +6,6 @@ import React, { useEffect, useRef } from "react";
 import { MdCircle } from "react-icons/md";
 import { gsap } from "gsap/gsap-core";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
 
