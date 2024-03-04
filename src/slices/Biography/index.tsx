@@ -26,7 +26,7 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
          <PrismicRichText field={slice.primary.description} />
         </div>
         <Button
-        linkfield={slice.primary.button_link}
+        linkField={slice.primary.button_link}
         label={slice.primary.button_text}
         />
         
