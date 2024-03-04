@@ -1,26 +1,31 @@
+"use client"
+
 import { ImageField } from "@prismicio/client"
 import { PrismicNextImage } from "@prismicio/next";
+import clsx from "clsx";
+import { Component, useRef } from "react";
 
 
 
 type AvatarProps = {
     image : ImageField;
     classNmae?: string;
-}
+};
 
 export default function Avatar({
     image, className
 }: AvatarProps){
+    const component = useRef(null)
 
     return(
-        <div>
-            <div>
+        <div ref={Component} className={clsx("relative h-full w-full", className)}>
+            <div className="avatar aspect-square overflow-hidden rounded-3xl border-2 border-slate-700 opacity-0f">
             <PrismicNextImage
             field={image}
-            className="row-start-1 max-w-sm md:col-start-2 md:row-end-3"
-          />
-
-            </div>
+            className="avatar-image h-full w-full object-fill"
+            imgixParams={{q:90}}
+              />
+             </div>
         </div>
     )
 }
