@@ -1,4 +1,4 @@
-import { Content } from "@prismicio/client";
+import { Content, isFilled } from "@prismicio/client";
 import Link from "next/link";
 import React from "react";
 import { MdArrowOutward } from "react-icons/md";
@@ -23,6 +23,8 @@ export default function ContentList({
     <ul className="grid border-b border-b-slate-100">
       {items.map((items, index) => (
         <>
+        {isFilled.keyText(item.data.title) &&(
+            
         <li key={index} className="list-item opacity-0f">
           <Link
             href={urlPrefix + "/" + item.uid}
@@ -43,8 +45,8 @@ export default function ContentList({
             </span>
           </Link>
         </li>
+        )}
         </>
-        
       ))}
     </ul>
   </div>;
