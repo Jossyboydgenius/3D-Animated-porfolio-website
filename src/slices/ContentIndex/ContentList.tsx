@@ -23,16 +23,22 @@ export default function ContentList({
 
   const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
 
-  const contentImages = items.map((item)=>{
-    const image = isFilled.image(item.data.image) ? item.data.image : fallbackItemImage;
+  const contentImages = items.map((item) => {
+    const image = isFilled.image(item.data.image)
+      ? item.data.image
+      : fallbackItemImage;
 
     return asImageSrc(image, {
       fit: "crop",
       w: 220,
       h: 320,
-      exp: -10
-    })
-  })
+      exp: -10,
+    });
+  });
+
+  const onMouseEnter = (index: number)=>{
+    setCurrentItem(index)
+  }
 
   return (
     <div ref={component}>
@@ -40,7 +46,11 @@ export default function ContentList({
         {items.map((item, index) => (
           <React.Fragment key={index}>
             {isFilled.keyText(item.data.title) && (
-              <li key={index} className="list-item opacity-0f">
+              <li
+                key={index}
+                className="list-item opacity-0f"
+                onMouseEnter={() => onMouseEnter(index)}
+              >
                 <Link
                   href={urlPrefix + "/" + item.uid}
                   className="flex flex-col justify-between border-t border-t-slate-100 py-10 text-slate-200 md:flex-row"
@@ -70,7 +80,8 @@ export default function ContentList({
       <div
         className="hover-reveal  pointer-events-none absolute left-0 top-0 -z-10 h-[320px] rounded-lg bg-over bg-center opacity-0 transition-[background] duration-300"
         style={{
-          backgroundImage: currentItem !== null ? `url(${contentImages[currentItem]})`: "",
+          backgroundImage:
+            currentItem !== null ? `url(${contentImages[currentItem]})` : "",
         }}
       ></div>
     </div>
