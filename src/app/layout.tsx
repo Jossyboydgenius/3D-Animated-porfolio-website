@@ -3,6 +3,7 @@ import { Urbanist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import clsx from "clsx";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-slate-900 text-slate-100">
-      <body className={urbanist.className}>
+      <body className={clsx(urbanist.className, 'relative min-h-screen')}>
         <Header />
         {children}
         <Footer />
