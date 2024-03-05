@@ -4,6 +4,7 @@ import { Content, asImageSrc, isFilled } from "@prismicio/client";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
+import { gsap } from "gsap/gsap-core";
 
 type ContentListProps = {
   items: Content.BlogPostDocument[] | Content.ProjectDocument[];
