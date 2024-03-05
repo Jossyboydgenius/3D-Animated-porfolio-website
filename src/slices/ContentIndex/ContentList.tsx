@@ -5,6 +5,9 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { gsap } from "gsap/gsap-core";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type ContentListProps = {
   items: Content.BlogPostDocument[] | Content.ProjectDocument[];
@@ -21,11 +24,36 @@ export default function ContentList({
 }: ContentListProps) {
   const component = useRef(null);
   const revealRef = useRef(null);
+  const itemsRef = useRef<Array<HTMLLIElement | null>>([]);
   const [currentItem, setCurrentItem] = useState<null | number>(null);
 
   const lastMousePos = useRef({ x: 0, y: 0 });
 
   const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      itemsRef.current.forEach((item) => {
+        gsap.fromTo(
+          item,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.3,
+            ease: "elastic.out(1,0.3)",
+            stagger: 0.2,
+            scrollTrigger: {
+              trigger: item,
+              start: "top botton-=100px",
+              end: "botton center",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      });
+    });
+  });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -58,7 +86,14 @@ export default function ContentList({
     };
   }, [currentItem]);
 
-  const contentImages = items.map((item) => {
+  const contentImages = [
+    ...items,
+    ...items,
+    ...items,
+    ...items,
+    ...items,
+    ...items,
+  ].map((item) => {
     const image = isFilled.image(item.data.hover_image)
       ? item.data.hover_image
       : fallbackItemImage;
@@ -93,6 +128,7 @@ export default function ContentList({
                   key={index}
                   className="list-item opacity-0f"
                   onMouseEnter={() => onMouseEnter(index)}
+                  ref={(el) => (itemsRef.current[index] = el)}
                 >
                   <Link
                     href={urlPrefix + "/" + item.uid}
