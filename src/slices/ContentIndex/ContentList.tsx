@@ -40,9 +40,16 @@ export default function ContentList({
     setCurrentItem(index);
   };
 
+  const onMouseLeave = () => {
+    setCurrentItem(null);
+  };
+
   return (
     <div ref={component}>
-      <ul className="grid border-b border-b-slate-100">
+      <ul
+        className="grid border-b border-b-slate-100"
+        onMouseLeave={onMouseLeave}
+      >
         {items.map((item, index) => (
           <React.Fragment key={index}>
             {isFilled.keyText(item.data.title) && (
