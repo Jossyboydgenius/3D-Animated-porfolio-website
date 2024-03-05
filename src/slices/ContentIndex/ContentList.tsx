@@ -24,8 +24,8 @@ export default function ContentList({
   const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
 
   const contentImages = items.map((item) => {
-    const image = isFilled.image(item.data.image)
-      ? item.data.image
+    const image = isFilled.image(item.data.hover_image)
+      ? item.data.hover_image
       : fallbackItemImage;
 
     return asImageSrc(image, {
@@ -78,7 +78,7 @@ export default function ContentList({
 
       {/* Hover Element */}
       <div
-        className="hover-reveal  pointer-events-none absolute left-0 top-0 -z-10 h-[320px] rounded-lg bg-over bg-center opacity-0 transition-[background] duration-300"
+        className="hover-reveal  pointer-events-none absolute left-0 top-0 -z-10 h-[320px] rounded-lg bg-over bg-center opacity-0f transition-[background] duration-300"
         style={{
           backgroundImage:
             currentItem !== null ? `url(${contentImages[currentItem]})` : "",
