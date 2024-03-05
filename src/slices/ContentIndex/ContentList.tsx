@@ -6,6 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { gsap } from "gsap/gsap-core";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { url } from "inspector";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,6 +87,7 @@ export default function ContentList({
     };
   }, [currentItem]);
 
+
   const contentImages = items.map((item) => {
     const image = isFilled.image(item.data.hover_image)
       ? item.data.hover_image
@@ -98,6 +100,14 @@ export default function ContentList({
       exp: -10,
     });
   });
+
+  useEffect(()=>{
+    contentImages.forEach((url)=>{
+      if (!url) return;
+      const img = new Image();
+      img.src = url;
+    })
+  }, [contentImages])
 
   const onMouseEnter = (index: number) => {
     setCurrentItem(index);
