@@ -2,7 +2,7 @@
 
 import { Content, asImageSrc, isFilled } from "@prismicio/client";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
 
 type ContentListProps = {
@@ -19,9 +19,36 @@ export default function ContentList({
   viewMoreText = "Read More",
 }: ContentListProps) {
   const component = useRef(null);
+  const revealRef = useRef(null);
   const [currentItem, setCurrentItem] = useState<null | number>(null);
 
+  const lastMousePos = useRef({ x: 0, y: 0 });
+
   const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const mousePos = { x: e.clientX, y: e.clientY + window.scrollY };
+
+      //Calculate speed and direction
+      const speed = Math.sqrt(Math.pow(mousePos.x - lastMousePos.current.x, 2));
+
+      let ctx = gsap.context(() => {
+        if (currentItem !== null) {
+          const maxY = window.scrollY + window.innerHeight - 350;
+          const maxX = window.innerWidth - 250;
+
+          gsap.to(revealRef.current, {
+            x: gsap.utils.clamp(0, maxX, mousePos.x - 110),
+            y: gsap.utils.clamp(0, maxY, mousePos.y - 160),
+            rotation: speed * (mousePos.x > lastMousePos.current.x ? 1 : -1),
+            ease: "back.out(2)",
+            duration: 1.3,
+          });
+        }
+      });
+    };
+  });
 
   const contentImages = items.map((item) => {
     const image = isFilled.image(item.data.hover_image)
@@ -90,6 +117,7 @@ export default function ContentList({
           backgroundImage:
             currentItem !== null ? `url(${contentImages[currentItem]})` : "",
         }}
+        ref={revealRef}
       ></div>
     </div>
   );
