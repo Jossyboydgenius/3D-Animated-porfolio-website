@@ -36,9 +36,9 @@ export default function ContentList({
     });
   });
 
-  const onMouseEnter = (index: number)=>{
-    setCurrentItem(index)
-  }
+  const onMouseEnter = (index: number) => {
+    setCurrentItem(index);
+  };
 
   return (
     <div ref={component}>
