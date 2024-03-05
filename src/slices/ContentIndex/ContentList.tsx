@@ -46,7 +46,9 @@ export default function ContentList({
             duration: 1.3,
           });
         }
-      });
+        lastMousePos.current = mousePos;
+        return () => ctx.revert();
+      }, component);
     };
   });
 
