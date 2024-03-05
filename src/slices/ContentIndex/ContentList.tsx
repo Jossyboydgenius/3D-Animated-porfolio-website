@@ -50,7 +50,11 @@ export default function ContentList({
         return () => ctx.revert();
       }, component);
     };
-  });
+    window.addEventListener("mousemove", handleMouseMove)
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    }
+  }, [currentItem]);
 
   const contentImages = items.map((item) => {
     const image = isFilled.image(item.data.hover_image)
