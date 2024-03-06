@@ -30,7 +30,7 @@ export default function ContentList({
 
   const lastMousePos = useRef({ x: 0, y: 0 });
 
-  const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
+  const urlPrefix = contentType === "Blog" ? "/blog" : "/projects";
 
   useEffect(() => {
     let ctx = gsap.context(() => {
