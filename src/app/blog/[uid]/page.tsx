@@ -41,7 +41,7 @@ export default async function Page({ params }: { params: Params }) {
             <span key={tag}>{tag}</span>
           ))}
         </div>
-        <p>{page.data.date}</p>
+        <p>{formattedDate}</p>
         <SliceZone slices={page.data.slices} components={components} />
       </div>
     </Bounded>
