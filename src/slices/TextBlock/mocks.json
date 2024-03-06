@@ -2,7 +2,19 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis reprehenderit aliquip in nisi. Mollit irure consequat sunt laborum et nisi reprehenderit et ut aliquip. Consectetur aliqua aliqua dolore culpa nisi sit ut ad magna laborum."
+						}
+					}
+				]
+			}
+		},
 		"items": []
 	}
 ]
