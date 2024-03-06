@@ -1,19 +1,14 @@
-import { notFound } from "next/navigation";
 import { SliceZone } from "@prismicio/react";
-import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
-import { DateField, isFilled } from "@prismicio/client";
+import { Content, DateField, isFilled } from "@prismicio/client";
 
-type Params = { uid: string };
-
-export default async function Page({ params }: { params: Params }) {
-  const client = createClient();
-  const page = await client
-    .getByUID("blog_post", params.uid)
-    .catch(() => notFound());
-
+export default function ContentBody({
+  page,
+}: {
+  page: Content.BlogPostDocument | Content.ProjectDocument;
+}) {
   function formatDate(date: DateField) {
     if (isFilled.date(date)) {
       const dateOptions: Intl.DateTimeFormatOptions = {
@@ -43,8 +38,7 @@ export default async function Page({ params }: { params: Params }) {
           {formattedDate}
         </p>
         <div className="prose prose-lg prose-invert mt-12 w-full max-w-none md:mt-20">
-
-        <SliceZone slices={page.data.slices} components={components} />
+          <SliceZone slices={page.data.slices} components={components} />
         </div>
       </div>
     </Bounded>
