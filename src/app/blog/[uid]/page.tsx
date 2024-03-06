@@ -15,19 +15,20 @@ export default async function Page({ params }: { params: Params }) {
   const page = await client
     .getByUID("blog_post", params.uid)
     .catch(() => notFound());
-    
-  function formatDate(date: DateField){
-    if (isFilled.date(date)){
 
-        const dateOptions: Intl.DateTimeFormatOptions = {
-          weekday: "long",
-          year: "numeric",
-          month: "long",
-    day: "numeric",
-};
-    return new Intl.DateTimeFormat("en-US", dateOptions).format(new Date(date))
-}  
-}
+  function formatDate(date: DateField) {
+    if (isFilled.date(date)) {
+      const dateOptions: Intl.DateTimeFormatOptions = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      return new Intl.DateTimeFormat("en-US", dateOptions).format(
+        new Date(date)
+      );
+    }
+  }
 
   return (
     <Bounded as="article">
