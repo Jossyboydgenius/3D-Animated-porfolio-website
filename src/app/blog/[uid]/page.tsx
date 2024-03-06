@@ -4,6 +4,8 @@ import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
+import Bounded from "@/components/Bounded";
+import Heading from "@/components/Heading";
 
 type Params = { uid: string };
 
@@ -13,7 +15,19 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID("blog_post", params.uid)
     .catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+  <Bounded as="article" >
+    <div className="rounded-2xl border-2 border-slate-800 bg-slate-900 px-4 py-10 md:px-8 md:py-20">
+        <Heading as="h1">{page.data.title}</Heading>
+        <div className="flex gap-4 text-yellow-400 text-xl font-bold">
+            {page.tags.map((tag)=>(
+                <span key={tag}>{tag}</span>
+            ))}
+        </div>
+    </div>
+  <SliceZone slices={page.data.slices} components={components} />
+  </Bounded>
+  );
 }
 
 export async function generateMetadata({
