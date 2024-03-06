@@ -24,8 +24,8 @@ export default async function Page({ params }: { params: Params }) {
                 <span key={tag}>{tag}</span>
             ))}
         </div>
-    </div>
   <SliceZone slices={page.data.slices} components={components} />
+    </div>
   </Bounded>
   );
 }
