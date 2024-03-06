@@ -201,6 +201,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ExperienceSlice
   | TechListSlice
   | ContentIndexSlice
   | BiographySlice;
