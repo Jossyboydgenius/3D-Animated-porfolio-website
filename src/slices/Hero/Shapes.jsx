@@ -80,7 +80,8 @@ function Geometries() {
             color: 0x2c3e50,
         }),
     ];
-
+    // Pass to Geometry
+    
     const soundEffects = [
         new Audio("/sounds/knock1.ogg"),
         new Audio("/sounds/knock2.ogg"),
