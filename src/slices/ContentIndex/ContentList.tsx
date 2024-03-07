@@ -147,7 +147,7 @@ export default function ContentList({
                       ))}
                     </div>
                   </div>
-                  <span className="ml-auto flex items-center gap-2 text-xl font-medium md:ml-0">
+                  <span className="ml-auto flex items-center gap-2 text-xl font-medium md:m1-0">
                     {viewMoreText} <MdArrowOutward />
                   </span>
                 </Link>
@@ -159,7 +159,7 @@ export default function ContentList({
 
       {/* Hover Element */}
       <div
-        className="hover-reveal  pointer-events-none absolute lef-0 top-0 -z-10 h-[320px] rounded-lg bg-over bg-center opacity-0 transition-[background] duration-300"
+        className="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] rounded-lg bg-over bg-center opacity-0 transition-[background] duration-300"
         style={{
           backgroundImage:
             currentItem !== null ? `url(${contentImages[currentItem]})` : "",
