@@ -14,8 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await client.getSingle("settings");
 
   return {
-    title: settings.data.meta_title,
-    description: settings.data.meta_description,
+    title: "Awe Joseph",
+    description: "Portfolio website",
   };
 }
 
